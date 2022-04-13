@@ -58,12 +58,13 @@ function onSwitchLine() {
 function drawText(lineIdx, x, y) {
     const meme = getMeme()
     const line = meme.lines[lineIdx]
+    gCtx.lineWidth = 2
     gCtx.textBaseline = 'middle'
     gCtx.textAlign = 'center'
-    gCtx.font = `${line.size}px arial`
+    gCtx.font = `${line.size}px impact`
     gCtx.fillStyle = line.color
     gCtx.fillText(line.txt, x, y)
-    gCtx.strokeStyle = '#383838'
+    gCtx.strokeStyle = '#232b2b'
     gCtx.strokeText(line.txt, x, y)
         // gCtx.drawFocusIfNeeded(gElCanvas)
 }

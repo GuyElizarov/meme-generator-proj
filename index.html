@@ -17,8 +17,10 @@
             <div class="main-logo">Mememeia</div>
             <div class="header-nav">
                 <ul class=" flex ">
-                    <li><a class="flex center active" href="#">Gallery</a> </li>
-                    <li><a class="flex center" href="#">About</a></li>
+
+                    <li><a href="#">Memes</a> </li>
+                    <li><a class="active" href="#">Gallery</a> </li>
+                    <li><a href="#">About</a></li>
                 </ul>
             </div>
         </header>
@@ -42,12 +44,12 @@
                         <canvas width="600" height="600"></canvas>
                     </div>
 
-                    <div class="editor flex column"> editor
-                        <label> Text <input type="text" name="txt" onchange="onTxtChange(this.value)"></label>
+                    <div class="editor flex column">
+                        <label><input type="text" name="txt" onchange="onTxtChange(this.value)"></label>
                         <label> Color <input type="color" onchange="onColorChange(this.value)" ></label>
-                        <button onclick="onChangeTxtSize(5)">up</button>
-                        <button onclick="onChangeTxtSize(-5)">down</button>
-                        <button onclick="onSwitchLine()">switch line</button>
+                        <button onclick="onChangeTxtSize(5)">A+</button>
+                        <button onclick="onChangeTxtSize(-5)">A-</button>
+                        <button onclick="onSwitchLine()">&uarr;&darr;</button>
                     </div>
 
                 </div>
