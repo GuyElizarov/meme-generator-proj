@@ -1,0 +1,19 @@
+.main-editor {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.main-editor.flex {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "canvas editor" "canvas editor";
+}
+
+.canvas-container {
+    flex-grow: 1;
+}
+
+.editor {
+    flex-grow: 1;
+}
