@@ -1,0 +1,11 @@
+.main-gallery .images>* {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.images.grid {
+    grid-gap: .5rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: 250px;
+}

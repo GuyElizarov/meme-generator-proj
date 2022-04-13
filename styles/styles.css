@@ -1,0 +1,21 @@
+/* setup */
+
+@import 'setup/vars.css';
+@import 'setup/typography.css';
+
+/* base */
+
+@import 'basic/base.css';
+@import 'basic/layouts.css';
+@import 'basic/helpers.css';
+
+/* components */
+
+@import 'components/main-gallery.css';
+
+/* @import ; */
+
+
+/* mq */
+
+@import 'mq/mq.css';
