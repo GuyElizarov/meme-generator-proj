@@ -11,7 +11,7 @@
 
 <body onload="onInit()">
 
-    <div class="falex-container flex column">
+    <div class="flex-container flex column">
 
         <header class="main-header flex">
             <div class="main-logo">Mememeia</div>
@@ -29,17 +29,17 @@
             </ul>
         </nav>
 
-        <main class="">
+        <main>
 
             <section class="main-gallery main-layout">
                 <div class="images grid"></div>
             </section>
 
             <section class="main-editor main-layout" hidden>
-                <div class="aditor-container flex">
-
-                    <div class="canvas-container">
-                        <canvas width="400" height="400"></canvas>
+                <div class="editor-container flex">
+                    <button class="close-editor" onclick="onCloseEditor()">X</button>
+                    <div class="canvas-container flex">
+                        <canvas width="600" height="600"></canvas>
                     </div>
 
                     <div class="editor flex column"> editor

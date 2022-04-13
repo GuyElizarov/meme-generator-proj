@@ -30,6 +30,10 @@ function renderMeme() {
     }
 }
 
+function onCloseEditor() {
+    document.querySelector(".main-editor").hidden = true
+}
+
 function onTxtChange(txt) {
     setLineTxt(txt)
     renderMeme()

@@ -1,13 +1,23 @@
 .main-editor {
-    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
     width: 100%;
-    /* position: fixed; */
+    height: 100%;
+    background-color: var(--clr4);
 }
 
-.main-editor.flex {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    grid-template-areas: "canvas editor" "canvas editor";
+.editor-container .flex {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.close-editor {
+    padding: .3rem;
+    border-radius: 5px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
 
 .canvas-container {
