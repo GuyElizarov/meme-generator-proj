@@ -2,7 +2,29 @@
     box-sizing: border-box;
 }
 
+html {
+    /* font-family: lato-regular; */
+    color: var(--clr4);
+}
+
 body {
     margin: 0;
     padding: 0;
+    background-color: var(--clr4);
+}
+
+li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: unset;
+    text-decoration: none;
+}
+
+.main-logo {
+    /* font-family: eurofurence; */
+    font-size: 2.5rem;
 }

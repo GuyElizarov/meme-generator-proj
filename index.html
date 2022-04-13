@@ -9,36 +9,54 @@
     <title>Ultimate Meme Generator</title>
 </head>
 
-<body onload="onInit()" onload="onInitCanvas()">
+<body onload="onInit()">
 
-    <div class="main-layout flex column">
+    <div class="falex-container flex column">
 
-        <header class="main-header "> header</header>
-        <nav class="main-nav">nav</nav>
+        <header class="main-header flex">
+            <div class="main-logo">Mememeia</div>
+            <div class="header-nav">
+                <ul class=" flex ">
+                    <li><a class="flex center active" href="#">Gallery</a> </li>
+                    <li><a class="flex center" href="#">About</a></li>
+                </ul>
+            </div>
+        </header>
+        <nav class="main-nav flex">
+            <ul class=" flex ">
+                <li>funny</li>
+                <li>Dogs</li>
+            </ul>
+        </nav>
 
-        <main>
+        <main class="">
 
-            <section class="main-gallery ">
+            <section class="main-gallery main-layout">
                 <div class="images grid"></div>
             </section>
 
-            <section class="main-editor flex" hidden>
-                <!-- maiby i need flex hear -->
-                <div class="canvas-container">
-                    <canvas width="400" height="400"></canvas>
-                </div>
-                <div class="editor flex column"> editor
-                    <label> Text <input type="text" onchange="onTxtChange(this.value)"></label>
-                    <label> Color <input type="color" onchange="onColorChange(this.value)" ></label>
-                    <button onclick="onChangeTxtSize(5)">up</button>
-                    <button onclick="onChangeTxtSize(-5)">down</button>
-                    <button onclick="onSwitchLine()">switch line</button>
+            <section class="main-editor main-layout" hidden>
+                <div class="aditor-container flex">
+
+                    <div class="canvas-container">
+                        <canvas width="400" height="400"></canvas>
+                    </div>
+
+                    <div class="editor flex column"> editor
+                        <label> Text <input type="text" name="txt" onchange="onTxtChange(this.value)"></label>
+                        <label> Color <input type="color" onchange="onColorChange(this.value)" ></label>
+                        <button onclick="onChangeTxtSize(5)">up</button>
+                        <button onclick="onChangeTxtSize(-5)">down</button>
+                        <button onclick="onSwitchLine()">switch line</button>
+                    </div>
+
                 </div>
             </section>
 
         </main>
     </div>
 
+    <script src="js/utils.js"></script>
     <script src="js/services/storage-service.js"></script>
     <script src="js/services/meme-service.js"></script>
     <script src="js/meme-controler.js"></script>

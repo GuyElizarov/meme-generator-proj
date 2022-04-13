@@ -1,0 +1,11 @@
+.main-header {
+    justify-content: space-between;
+    background-color: var(--clr1);
+    box-shadow: inset 0px -2px 5px #3a3845;
+}
+
+.main-header ul>* {
+    width: 90px;
+    height: 33px;
+    cursor: pointer;
+}

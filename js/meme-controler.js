@@ -25,7 +25,8 @@ function renderMeme() {
     img.src = memeImg.url
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
-        drawText(meme.lines.txt, gElCanvas.width / 2, gElCanvas.height / 2)
+        drawText(0, gElCanvas.width / 2, gElCanvas.height / 3.5)
+        drawText(1, gElCanvas.width / 2, gElCanvas.height / 1.5)
     }
 }
 
@@ -42,21 +43,25 @@ function onColorChange(color) {
 function onChangeTxtSize(dif) {
     setTxtSize(dif)
     renderMeme()
-
 }
 
-function drawText(txt, x, y) {
-    const meme = getMeme()
+function onSwitchLine() {
+    switchLineIdx()
+    const elTxtInput = document.querySelector(`[name='txt']`)
+    elTxtInput.value = getCurrTxt()
+}
 
-    gCtx.beginPath()
+function drawText(lineIdx, x, y) {
+    const meme = getMeme()
+    const line = meme.lines[lineIdx]
     gCtx.textBaseline = 'middle'
     gCtx.textAlign = 'center'
-        // gCtx.lineWidth = 2
-    gCtx.font = `${meme.lines.size}px serif`
-    gCtx.fillStyle = meme.lines.color
-    gCtx.fillText(txt, x, y)
+    gCtx.font = `${line.size}px arial`
+    gCtx.fillStyle = line.color
+    gCtx.fillText(line.txt, x, y)
     gCtx.strokeStyle = '#383838'
-    gCtx.strokeText(txt, x, y)
+    gCtx.strokeText(line.txt, x, y)
+        // gCtx.drawFocusIfNeeded(gElCanvas)
 }
 
 

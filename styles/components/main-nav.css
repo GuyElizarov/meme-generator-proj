@@ -1,0 +1,10 @@
+.main-nav ul>* {
+    height: 51px;
+    padding: 0 20px;
+}
+
+.main-nav {
+    background-color: var(--clr2);
+    justify-content: flex-end;
+    box-shadow: 1px 0px 5px #3a3845;
+}

@@ -1,3 +1,7 @@
 .main-layout {
-    height: 100vh;
+    margin: 0 auto;
+    padding-top: 1.6rem;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+    box-sizing: content-box;
 }

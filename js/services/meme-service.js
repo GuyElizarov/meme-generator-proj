@@ -18,31 +18,26 @@ var gImgs = [
 ]
 
 
-// var gMeme = {
-//     selectedLineIdx: 0,
-//     lines: [{
-//         txt: 'I sometimes eat Falafel',
-//         size: 20,
-//         align: 'left',
-//         color: 'red'
-//     }]
-// }
-
 var gMeme = {
     selectedImgId: 1,
-    lines: {
-        txt: 'I sometimes eat Falafel',
-        size: 20,
-        align: 'left',
-        color: 'red'
-    },
-
-    line: 'text',
-    color: '#F2F2F2'
+    selectedLineIdx: 0,
+    lines: [{
+            txt: 'I sometimes eat Falafel',
+            size: 40,
+            align: 'left',
+            color: getRandomColor()
+        },
+        {
+            txt: 'wha wha wi wha',
+            size: 20,
+            align: 'left',
+            color: getRandomColor()
+        }
+    ]
 }
 
 function setLineTxt(txt) {
-    gMeme.lines.txt = txt
+    gMeme.lines[gMeme.selectedLineIdx].txt = txt
 }
 
 function setImg(imgId) {
@@ -50,18 +45,21 @@ function setImg(imgId) {
 }
 
 function setColor(color) {
-    gMeme.lines.color = color
+    gMeme.lines[gMeme.selectedLineIdx].color = color
 
 }
 
 function setTxtSize(dif) {
-    let size = gMeme.lines.size
+    let size = gMeme.lines[gMeme.selectedLineIdx].size
     if (size + dif > 5 && size + dif < 80) {
-        gMeme.lines.size += dif
+        gMeme.lines[gMeme.selectedLineIdx].size += dif
     }
 }
 
-
+function switchLineIdx() {
+    gMeme.selectedLineIdx++
+        if (gMeme.selectedLineIdx === gMeme.lines.length) gMeme.selectedLineIdx = 0
+}
 
 
 
@@ -74,4 +72,8 @@ function getMeme() {
 
 function getImgs() {
     return gImgs
+}
+
+function getCurrTxt() {
+    return gMeme.lines[gMeme.selectedLineIdx].txt
 }
