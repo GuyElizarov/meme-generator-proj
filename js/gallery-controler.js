@@ -1,8 +1,9 @@
 'use strict'
 
 function renderGallery() {
-
-    document.querySelector('.images').innerHTML = getImgs().map(img => `
-    <img src=${img.url} onclick="onImgSelect(${img.id})">
+    const elImgs = document.querySelector('.images')
+    const imgs = getImgs()
+    elImgs.innerHTML = imgs.map(img => `
+    <img src=${img.url} data-id="${img.id}" onclick="onImgSelect(${img.id})">
     `).join('')
 }

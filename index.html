@@ -41,15 +41,24 @@
                 <div class="editor-container flex">
                     <button class="close-editor" onclick="onCloseEditor()">X</button>
                     <div class="canvas-container flex">
-                        <canvas width="600" height="600"></canvas>
+                        <canvas id="canvas" width="600" height="600"></canvas>
                     </div>
 
                     <div class="editor flex column">
-                        <label><input type="text" name="txt" onchange="onTxtChange(this.value)"></label>
+                        <label><input type="text" name="txt" placeholder="do something.." onchange="onTxtChange(this.value)"></label>
                         <label> Color <input type="color" onchange="onColorChange(this.value)" ></label>
                         <button onclick="onChangeTxtSize(5)">A+</button>
                         <button onclick="onChangeTxtSize(-5)">A-</button>
-                        <button onclick="onSwitchLine()">&uarr;&darr;</button>
+                        <button onclick="onSwitchLine()">&duarr;</button>
+                        <button onclick="onDeleteLine()">&#x1F5D1;</button>
+                        <button onclick="onCreateLine()">+</button>
+                        <button>&lsh;</button>
+                        <button>&#128441;</button>
+                        <button>&rsh;</button>
+                        <button>Font</button>
+                        <button>up</button>
+                        <button>down</button>
+                        <button>Download</button>
                     </div>
 
                 </div>
@@ -66,6 +75,7 @@
     <script src="js/utils.js"></script>
     <script src="js/services/storage-service.js"></script>
     <script src="js/services/meme-service.js"></script>
+    <script src="js/services/gallery-service.js"></script>
     <script src="js/meme-controler.js"></script>
     <script src="js/gallery-controler.js"></script>
 </body>

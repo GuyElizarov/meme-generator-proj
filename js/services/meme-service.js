@@ -1,79 +1,68 @@
 'use strict'
 
-var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
-
-var gImgs = [
-    { id: 1, url: 'img/meme-imgs/1.jpg', keywords: ['funny'] },
-    { id: 2, url: 'img/meme-imgs/2.jpg', keywords: ['funny'] },
-    { id: 3, url: 'img/meme-imgs/3.jpg', keywords: ['funny'] },
-    { id: 4, url: 'img/meme-imgs/4.jpg', keywords: ['funny'] },
-    { id: 5, url: 'img/meme-imgs/5.jpg', keywords: ['funny'] },
-    { id: 6, url: 'img/meme-imgs/6.jpg', keywords: ['funny'] },
-    { id: 7, url: 'img/meme-imgs/7.jpg', keywords: ['funny'] },
-    { id: 8, url: 'img/meme-imgs/8.jpg', keywords: ['funny'] },
-    { id: 9, url: 'img/meme-imgs/9.jpg', keywords: ['funny'] },
-    { id: 10, url: 'img/meme-imgs/10.jpg', keywords: ['funny'] },
-    { id: 11, url: 'img/meme-imgs/11.jpg', keywords: ['funny'] },
-    { id: 12, url: 'img/meme-imgs/12.jpg', keywords: ['funny'] },
-]
-
-
 var gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
-    lines: [{
-            txt: 'I sometimes eat Falafel',
-            size: 40,
-            align: 'left',
-            color: getRandomColor()
-        },
-        {
-            txt: 'wha wha wi wha',
-            size: 20,
-            align: 'left',
-            color: getRandomColor()
-        }
-    ]
+    lines: []
 }
+
+function switchLineIdx() {
+    gMeme.selectedLineIdx++
+        if (gMeme.selectedLineIdx >= gMeme.lines.length) gMeme.selectedLineIdx = 0
+}
+
+function clearLine() {
+    getCurrLine().txt = ''
+}
+
+function clearAllTxt() {
+    gMeme.lines.forEach(line => line.txt = '')
+}
+
+function creatLine(txt = 'Edit me') {
+    gMeme.lines.push({
+        txt,
+        size: 50,
+        align: 'left',
+        color: getRandomColor(),
+    })
+
+}
+
+//setters
 
 function setLineTxt(txt) {
-    gMeme.lines[gMeme.selectedLineIdx].txt = txt
+    const line = getCurrLine()
+    if (!line) creatLine(txt)
+    else line.txt = txt
 }
 
-function setImg(imgId) {
+function setImgId(imgId) {
     gMeme.selectedImgId = imgId
 }
 
 function setColor(color) {
-    gMeme.lines[gMeme.selectedLineIdx].color = color
+    getCurrLine().color = color
 
 }
 
 function setTxtSize(dif) {
     let size = gMeme.lines[gMeme.selectedLineIdx].size
     if (size + dif > 5 && size + dif < 80) {
-        gMeme.lines[gMeme.selectedLineIdx].size += dif
+        getCurrLine().size += dif
     }
 }
 
-function switchLineIdx() {
-    gMeme.selectedLineIdx++
-        if (gMeme.selectedLineIdx === gMeme.lines.length) gMeme.selectedLineIdx = 0
-}
-
-
-
-
-
-
-function getMeme() {
-    return gMeme
-}
-
-function getImgs() {
-    return gImgs
-}
+// getters
 
 function getCurrTxt() {
-    return gMeme.lines[gMeme.selectedLineIdx].txt
+    return getCurrLine().txt
+}
+
+function geSelectedImgId() {
+    return gMeme.selectedImgId
+}
+
+function getCurrLine() {
+    return gMeme.lines[gMeme.selectedLineIdx]
 }
