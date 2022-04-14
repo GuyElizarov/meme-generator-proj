@@ -1,0 +1,11 @@
+.button-44 {
+    background: var(--clr1);
+    border-radius: 11px;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    font-size: 1.15em;
+    justify-content: center;
+    padding: .8em 1em;
+    width: 100%;
+}

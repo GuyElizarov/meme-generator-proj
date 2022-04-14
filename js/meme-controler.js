@@ -6,9 +6,10 @@ var gCtx
 function onInit() {
     gElCanvas = document.querySelector('#canvas')
     gCtx = gElCanvas.getContext('2d')
-        // resizeCanvas()
     renderGallery()
     renderMeme()
+        // resizeCanvas()
+        // addListeners()
 }
 
 function renderMeme() {
@@ -34,7 +35,8 @@ function drawText(lineIdx) {
 function onImgSelect(imgId) {
     setImgId(imgId)
     renderMeme()
-    document.querySelector('.main-editor').hidden = false
+    toggleEditor()
+        // document.querySelector('.main-editor').hidden = false
 }
 
 function onTxtChange(txt) {
@@ -101,21 +103,30 @@ function onClearAll() {
 }
 
 function onCloseEditor() {
-    document.querySelector(".main-editor").hidden = true
+    toggleEditor()
+        // document.querySelector(".main-editor").hidden = true
 }
 
+function toggleMenu() {
+    document.body.classList.toggle('menu-open')
+}
 
-// function draw(ev) {
-//     const { offsetX, offsetY } = ev
-//     switch (gCurrShape) {
-//         case 'text':
-//             drawText('שלום', offsetX, offsetY);
-//             break;
-//     }
-// }
+function toggleEditor() {
+    const elContainer = document.querySelector('.editor-container')
+    elContainer.classList.toggle('editor-open')
+}
 
-// function resizeCanvas() {
-//     var elContainer = document.querySelector('.canvas-container');
-//     gElCanvas.width = elContainer.offsetWidth - 30;
-//     gElCanvas.height = elContainer.offsetHeight
-// }
+function resizeCanvas() {
+    const elContainer = document.querySelector('.canvas-container')
+    gElCanvas.width = elContainer.offsetWidth
+    gElCanvas.height = elContainer.offsetHeight
+}
+
+function addListeners() {
+    // addMouseListeners()
+    // addTouchListeners()
+    window.addEventListener('resize', () => {
+        resizeCanvas()
+        renderMeme()
+    })
+}

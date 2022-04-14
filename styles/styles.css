@@ -11,6 +11,7 @@
 
 /* components */
 
+@import 'components/nice-button.css';
 @import 'components/main-header.css';
 @import 'components/main-nav.css';
 @import 'components/main-gallery.css';

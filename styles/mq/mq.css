@@ -1,0 +1,29 @@
+ /* MOILE ONLY */
+ 
+ @media (max-width: 640px) {
+     header {
+         position: fixed;
+         width: 100%;
+         z-index: 1;
+     }
+ }
+ /* rest */
+ 
+ @media (min-width: 640px) {
+     .images.grid {
+         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+         grid-auto-rows: 250px;
+     }
+     .main-header .header-nav {
+         display: block;
+     }
+     .main-header .btn-toggle-menu {
+         display: none;
+     }
+ }
+ 
+ @media (min-width: 1460px) {
+     .editor-container {
+         flex-direction: row;
+     }
+ }

@@ -4,6 +4,8 @@
 
 html {
     color: var(--clr4);
+    font-size: 18;
+    font-family: montserrat;
 }
 
 body {

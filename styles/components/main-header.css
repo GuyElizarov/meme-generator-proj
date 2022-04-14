@@ -14,3 +14,15 @@
 .main-header .main-logo {
     margin-inline-start: 20px;
 }
+
+.main-header .header-nav {
+    display: none;
+}
+
+.main-header .btn-toggle-menu {
+    border: none;
+    border-radius: 2px;
+    padding: 10px;
+    margin-inline-end: .7rem;
+    background-color: var(--clr2);
+}
