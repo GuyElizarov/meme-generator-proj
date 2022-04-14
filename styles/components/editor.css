@@ -1,0 +1,67 @@
+.editor.grid {
+    /* height: 100%; */
+    grid-gap: 0.5em;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas: " input input input input input input" " up   down  switch create delete ." " fi fi fd alignR alignC alignL " " font font font download download clr";
+}
+
+.editor .input {
+    grid-area: input;
+}
+
+.editor .input input {
+    width: 85%;
+}
+
+.editor .up {
+    grid-area: up;
+}
+
+.editor .down {
+    grid-area: down;
+}
+
+.editor .switch {
+    grid-area: switch;
+}
+
+.editor .create {
+    grid-area: create;
+}
+
+.editor .delete {
+    grid-area: delete;
+}
+
+.editor .fi {
+    grid-area: fi;
+}
+
+.editor .fd {
+    grid-area: fd;
+}
+
+.editor .alignR {
+    grid-area: alignR;
+}
+
+.editor .alignC {
+    grid-area: alignC;
+}
+
+.editor .alignL {
+    grid-area: alignL;
+}
+
+.editor .font {
+    grid-area: font;
+}
+
+.editor .download {
+    grid-area: download;
+}
+
+.editor .clr {
+    grid-area: clr;
+}

@@ -44,21 +44,26 @@
                         <canvas id="canvas" width="600" height="600"></canvas>
                     </div>
 
-                    <div class="editor flex column">
-                        <label><input type="text" name="txt" placeholder="do something.." onchange="onTxtChange(this.value)"></label>
-                        <label> Color <input type="color" onchange="onColorChange(this.value)" ></label>
-                        <button onclick="onChangeTxtSize(5)">A+</button>
-                        <button onclick="onChangeTxtSize(-5)">A-</button>
-                        <button onclick="onSwitchLine()">&duarr;</button>
-                        <button onclick="onDeleteLine()">&#x1F5D1;</button>
-                        <button onclick="onCreateLine()">+</button>
-                        <button>&lsh;</button>
-                        <button>&#128441;</button>
-                        <button>&rsh;</button>
-                        <button>Font</button>
-                        <button>up</button>
-                        <button>down</button>
-                        <button>Download</button>
+                    <div class="editor grid">
+                        <label class="input"><input type="text" name="txt" placeholder="do something.." onchange="onTxtChange(this.value)"></label>
+                        <label class="clr"> Color <input type="color" onchange="onColorChange(this.value)" ></label>
+                        <button class="fi" onclick="onChangeTxtSize(5)">A+</button>
+                        <button class="fd" onclick="onChangeTxtSize(-5)">A-</button>
+                        <button class="switch" onclick="onSwitchLine()">&duarr;</button>
+                        <button class="delete" onclick="onDeleteLine()">&#x1F5D1;</button>
+                        <button class="create" onclick="onCreateLine()">+</button>
+                        <button class="alignL" onclick="onChangeAlign('left')">&lsh;</button>
+                        <button class="alignC" onclick="onChangeAlign('center')">&#128441;</button>
+                        <button class="alignR" onclick="onChangeAlign('right')">&rsh;</button>
+                        <select class="font" onchange="onChangeFont(this.value)">
+                            <option value="Impact">impact</option>
+                            <option value="monospace">Monospace</option>
+                            <option value="serif">Serif</option>
+                            <option value="arial">Arial</option>
+                        </select>
+                        <button class="up" onclick="onMoveLine(-5)">up</button>
+                        <button class="down" onclick="onMoveLine(5)">down</button>
+                        <button class="download"><a href="#" onclick="onDownloadCanvas(this)" download="">Download</a></button>
                     </div>
 
                 </div>
