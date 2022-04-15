@@ -40,15 +40,16 @@
 
             <section class="editor-container">
 
-                <button class="close-editor" onclick="onCloseEditor()">X</button>
+                <button class="close-editor-btn" onclick="onCloseEditor()">X</button>
 
                 <div class="canvas-container">
                     <canvas id="canvas" width="600" height="600"></canvas>
                 </div>
 
                 <div class="editor grid">
-                    <label class="txt-input"><input type="text" name="txt" placeholder="do something..." onchange="onTxtChange(this.value)"></label>
-                    <label class="clr"> Color <input type="color" onchange="onColorChange(this.value)" ></label>
+
+                    <input type="text" placeholder="do something..." class="txt-input" onchange="onTxtChange(this.value)">
+                    <label class="clr nice-button"> Color <input type="color" onchange="onColorChange(this.value)" ></label>
                     <button class="fi nice-button" onclick="onChangeTxtSize(5)">A+</button>
                     <button class="fd nice-button" onclick="onChangeTxtSize(-5)">A-</button>
                     <button class="switch nice-button" onclick="onSwitchLine()">&duarr;</button>

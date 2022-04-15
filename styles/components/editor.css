@@ -9,7 +9,9 @@
 .editor .txt-input {
     grid-area: input;
     border: none;
-    width: 80%;
+    width: 100%;
+    font-size: 2rem;
+    border-radius: 20px;
 }
 
 .editor .font {

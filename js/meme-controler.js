@@ -36,7 +36,6 @@ function onImgSelect(imgId) {
     setImgId(imgId)
     renderMeme()
     toggleEditor()
-        // document.querySelector('.main-editor').hidden = false
 }
 
 function onTxtChange(txt) {
@@ -104,20 +103,24 @@ function onClearAll() {
 
 function onCloseEditor() {
     toggleEditor()
-        // document.querySelector(".main-editor").hidden = true
 }
 
-function toggleMenu() {
-    document.body.classList.toggle('menu-open')
-}
+// function toggleMenu() {
+//     document.body.classList.toggle('menu-open')
+// }
 
 function toggleEditor() {
-    const elContainer = document.querySelector('.editor-container')
-    elContainer.classList.toggle('editor-open')
+    const elMainGallery = document.querySelector('.main-gallery')
+    const elEditorContainer = document.querySelector('.editor-container')
+
+    elMainGallery.classList.toggle('close-gallery')
+    elEditorContainer.classList.toggle('open-editor')
 }
 
 function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
+    console.log('elContainer', elContainer)
+    console.log('gElCanvas', gElCanvas)
     gElCanvas.width = elContainer.offsetWidth
     gElCanvas.height = elContainer.offsetHeight
 }
