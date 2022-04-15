@@ -1,5 +1,8 @@
 'use strict'
 
+
+const MEME_KEY = 'memeDB'
+var gMemes = []
 var gMeme = {
     selectedImgId: 1,
     selectedLineIdx: 0,
@@ -29,6 +32,7 @@ function creatLine(txt = 'Edit me', font = 'impact') {
         align: 'center',
         color: getRandomColor(),
         font: 'impact',
+        isDrag: false
     })
 }
 
@@ -47,6 +51,61 @@ function moveLine(diff) {
     const line = getCurrLine()
     line.y += diff
 }
+
+function saveCanvas(href) {
+    gMemes.push(href)
+    saveMemsToStorage
+}
+
+function saveMemsToStorage() {
+    saveToStorage(MEME_KEY, gMemes)
+}
+
+function loadMemes() {
+    gMemes = loadFromStorage(MEME_KEY)
+}
+
+
+
+
+
+
+
+
+
+
+
+function isCircleClicked(clickedPos) {
+    const { x, y, size } = gMeme.lines[selectedLineIdx]
+    const distance = Math.sqrt((x - clickedPos.x) ** 2 + (y - clickedPos.y) ** 2)
+    return distance <= size
+}
+
+
+function setLineDrag(isDrag) {
+    gCircle.isDrag = isDrag
+}
+
+// function moveCircle(dx, dy) {
+//     gCircle.pos.x += dx
+//     gCircle.pos.y += dy
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //setters
 
