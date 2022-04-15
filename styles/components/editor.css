@@ -67,4 +67,5 @@
 
 .editor .clr {
     grid-area: clr;
+    text-align: center;
 }

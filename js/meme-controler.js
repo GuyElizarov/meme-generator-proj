@@ -8,8 +8,6 @@ function onInit() {
     gCtx = gElCanvas.getContext('2d')
     renderGallery()
     renderMeme()
-        // resizeCanvas()
-        // addListeners()
 }
 
 function renderMeme() {
@@ -76,7 +74,7 @@ function onSwitchLine() {
     elTxtInput.value = getCurrTxt()
 }
 
-function onDownloadCanvas(elLink) {
+function onSaveCanvas(elLink) {
     elLink.href = gElCanvas.toDataURL()
     elLink.download = 'my-meme.jpg'
 }
@@ -102,12 +100,10 @@ function onClearAll() {
 }
 
 function onCloseEditor() {
+
+    clearAllTxt()
     toggleEditor()
 }
-
-// function toggleMenu() {
-//     document.body.classList.toggle('menu-open')
-// }
 
 function toggleEditor() {
     const elMainGallery = document.querySelector('.main-gallery')
@@ -117,19 +113,11 @@ function toggleEditor() {
     elEditorContainer.classList.toggle('open-editor')
 }
 
-function resizeCanvas() {
-    const elContainer = document.querySelector('.canvas-container')
-    console.log('elContainer', elContainer)
-    console.log('gElCanvas', gElCanvas)
-    gElCanvas.width = elContainer.offsetWidth
-    gElCanvas.height = elContainer.offsetHeight
-}
-
 function addListeners() {
     // addMouseListeners()
     // addTouchListeners()
-    window.addEventListener('resize', () => {
-        resizeCanvas()
-        renderMeme()
-    })
 }
+
+// function toggleMenu() {
+//     document.body.classList.toggle('menu-open')
+// }

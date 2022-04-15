@@ -12,11 +12,11 @@ function switchLineIdx() {
 }
 
 function clearLine() {
-    getCurrLine().txt = ''
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1)
 }
 
 function clearAllTxt() {
-    gMeme.lines.forEach(line => line.txt = '')
+    gMeme.lines = []
 }
 
 function creatLine(txt = 'Edit me', font = 'impact') {
@@ -35,7 +35,7 @@ function creatLine(txt = 'Edit me', font = 'impact') {
 function creatCoords() {
     const lineCount = gMeme.lines.length
     if (lineCount === 0 || lineCount > 2) {
-        return { x: 300, y: 300 }
+        return { x: gElCanvas.width / 2, y: gElCanvas.height / 2 }
     } else if (lineCount === 1) {
         return { x: gElCanvas.width / 2, y: gElCanvas.height / 3.5 }
     } else {
@@ -68,7 +68,7 @@ function setColor(color) {
 
 function setTxtSize(dif) {
     let size = getCurrLine().size
-    if (size + dif > 5 && size + dif < 80) {
+    if (size + dif > 20 && size + dif < 200) {
         getCurrLine().size += dif
     }
 }

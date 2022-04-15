@@ -14,7 +14,7 @@
     <div class="flex-container flex column">
 
         <header class="main-header flex">
-            <div class="main-logo">Mememeia</div>
+            <div class="main-logo">Mememia</div>
             <button class="btn-toggle-menu" onclick="toggleMenu()">☰</button>
             <div class="header-nav">
                 <ul class=" flex center">
@@ -42,16 +42,18 @@
 
                 <button class="close-editor-btn" onclick="onCloseEditor()">X</button>
 
-                <div class="canvas-container">
-                    <canvas id="canvas" width="600" height="600"></canvas>
+                <div class="canvas-container flex flex-center">
+                    <canvas id="canvas" width="400" height="400"></canvas>
                 </div>
 
                 <div class="editor grid">
 
-                    <input type="text" placeholder="do something..." class="txt-input" onchange="onTxtChange(this.value)">
-                    <label class="clr nice-button"> Color <input type="color" onchange="onColorChange(this.value)" ></label>
-                    <button class="fi nice-button" onclick="onChangeTxtSize(5)">A+</button>
-                    <button class="fd nice-button" onclick="onChangeTxtSize(-5)">A-</button>
+                    <input type="text" placeholder="do something..." name="txt" class="txt-input" oninput="onTxtChange(this.value)">
+
+                    <label class="clr nice-button flex flex-center"> Color <input style="visibility:hidden;" type="color" oninput="onColorChange(this.value)" ></label>
+
+                    <button class="fi nice-button" onclick="onChangeTxtSize(10)">A+</button>
+                    <button class="fd nice-button" onclick="onChangeTxtSize(-10)">A-</button>
                     <button class="switch nice-button" onclick="onSwitchLine()">&duarr;</button>
                     <button class="delete nice-button" onclick="onDeleteLine()">&#x1F5D1;</button>
                     <button class="create nice-button" onclick="onCreateLine()">+</button>
@@ -64,16 +66,17 @@
                             <option value="serif">Serif</option>
                             <option value="arial">Arial</option>
                         </select>
-                    <button class="up nice-button" onclick="onMoveLine(-5)">&uarr;</button>
-                    <button class="down nice-button" onclick="onMoveLine(5)">&darr;</button>
-                    <button class="download nice-button"><a href="#" onclick="onDownloadCanvas(this)" download="">Save</a></button>
+                    <button class="up nice-button" onclick="onMoveLine(-20)">&uarr;</button>
+                    <button class="down nice-button" onclick="onMoveLine(20)">&darr;</button>
+                    <button class="download nice-button"><a href="#" onclick="onSaveCanvas(this)" download="">Save</a></button>
+
                 </div>
             </section>
 
         </main>
 
         <footer class="flex column flex-center">
-            <div class="main-logo">Mememeia</div>
+            <div class="main-logo">Mememia</div>
             <small>	&copy;coffee-right 2022</small>
         </footer>
 

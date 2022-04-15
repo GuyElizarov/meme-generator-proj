@@ -1,12 +1,19 @@
+canvas {
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+}
+
 .canvas-container {
     width: 50%;
-    height: 80%;
+    height: 50%;
     padding: 1rem 0;
 }
 
 .editor {
-    width: 40%;
+    width: 50%;
     height: 50%;
+    padding: 0 1rem;
 }
 
 .editor-container {
