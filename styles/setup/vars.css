@@ -1,17 +1,19 @@
-           :root {
-              --clr1: #001E6C;
-              --clr2: #035397;
-              --clr3: #E8630A;
-              --clr4: #FCD900;
-          }
-          /* :root {
-             --clr1: #06113C;
-             --clr2: #FF8C32;
-             --clr3: #DDDDDD;
-             --clr4: #EEEEEE;
-         } */
-          /* :root {
-         --clr1: #355C7D;
-         --clr2: #6C5B7B;
-         --clr3: #C06C84;
-         --clr4: #F67280; */
+          :root {
+             --clr1: #001E6C;
+             --clr2: #035397;
+             --clr3: #E8630A;
+             --clr4: #FCD900;
+         }
+         /* :root {
+            --clr1: #06113C;
+            --clr2: #FF8C32;
+            --clr3: #DDDDDD;
+            --clr4: #EEEEEE;
+        }
+        
+         :root {
+            --clr1: #355C7D;
+            --clr2: #6C5B7B;
+            --clr3: #C06C84;
+            --clr4: #F67280;
+        } */

@@ -2,6 +2,14 @@
     display: grid;
 }
 
+.nice-button {
+    background: var(--clr1);
+    border-radius: 11px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
 
 /* flex helpers */
 
@@ -16,8 +24,4 @@
 
 .flex.column {
     flex-direction: column;
-}
-
-.flex-container {
-    min-height: 100vh;
 }

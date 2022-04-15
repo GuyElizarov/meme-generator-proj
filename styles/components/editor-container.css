@@ -1,0 +1,24 @@
+.editor input {
+    font-size: 2rem;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.canvas-container {
+    width: 50%;
+    min-height: 100%;
+}
+
+.editor {
+    width: 50%;
+    min-height: 100%;
+}
+
+.close-editor {
+    border: none;
+    padding: .3rem;
+    border-radius: 5px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}

@@ -6,8 +6,10 @@
 }
 
 .main-header ul>* {
+    align-items: center;
+    justify-items: center;
     width: 90px;
-    height: 33px;
+    height: 100%;
     cursor: pointer;
 }
 

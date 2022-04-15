@@ -1,6 +1,9 @@
 .main-nav ul>* {
-    height: 51px;
-    padding: 0 20px;
+    padding: 0.625rem;
+}
+
+.main-nav ul>*:last-child {
+    margin-inline-end: 2rem;
 }
 
 .main-nav {

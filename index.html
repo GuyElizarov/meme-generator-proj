@@ -17,7 +17,7 @@
             <div class="main-logo">Mememeia</div>
             <button class="btn-toggle-menu" onclick="toggleMenu()">☰</button>
             <div class="header-nav">
-                <ul class=" flex ">
+                <ul class=" flex center">
 
                     <li><a href="#">Memes</a> </li>
                     <li><a class="active" href="#">Gallery</a> </li>
@@ -26,7 +26,7 @@
             </div>
         </header>
         <nav class="main-nav flex">
-            <ul class=" flex ">
+            <ul class="flex flex-center">
                 <li>funny</li>
                 <li>Dogs</li>
             </ul>
@@ -34,7 +34,7 @@
 
         <main>
 
-            <section class="main-gallery main-layout">
+            <section class="main-gallery">
                 <div class="images grid"></div>
             </section>
 
@@ -42,37 +42,36 @@
 
                 <button class="close-editor" onclick="onCloseEditor()">X</button>
 
-                <div class="canvas-container flex">
+                <div class="canvas-container">
                     <canvas id="canvas" width="600" height="600"></canvas>
                 </div>
 
                 <div class="editor grid">
-                    <label class="input"><input type="text" name="txt" placeholder="do something..." onchange="onTxtChange(this.value)"></label>
+                    <label class="txt-input"><input type="text" name="txt" placeholder="do something..." onchange="onTxtChange(this.value)"></label>
                     <label class="clr"> Color <input type="color" onchange="onColorChange(this.value)" ></label>
-                    <button class="fi button-44" onclick="onChangeTxtSize(5)">A+</button>
-                    <button class="fd button-44" onclick="onChangeTxtSize(-5)">A-</button>
-                    <button class="switch button-44" onclick="onSwitchLine()">&duarr;</button>
-                    <button class="delete button-44" onclick="onDeleteLine()">&#x1F5D1;</button>
-                    <button class="create button-44" onclick="onCreateLine()">+</button>
-                    <button class="alignL button-44" onclick="onChangeAlign('start')">&lsh;</button>
-                    <button class="alignC button-44" onclick="onChangeAlign('center')">&#128441;</button>
-                    <button class="alignR button-44" onclick="onChangeAlign('end')">&rsh;</button>
+                    <button class="fi nice-button" onclick="onChangeTxtSize(5)">A+</button>
+                    <button class="fd nice-button" onclick="onChangeTxtSize(-5)">A-</button>
+                    <button class="switch nice-button" onclick="onSwitchLine()">&duarr;</button>
+                    <button class="delete nice-button" onclick="onDeleteLine()">&#x1F5D1;</button>
+                    <button class="create nice-button" onclick="onCreateLine()">+</button>
+                    <button class="alignL nice-button" onclick="onChangeAlign('start')">&lsh;</button>
+                    <button class="alignC nice-button" onclick="onChangeAlign('center')">&#128441;</button>
+                    <button class="alignR nice-button" onclick="onChangeAlign('end')">&rsh;</button>
                     <select class="font" onchange="onChangeFont(this.value)">
                             <option value="Impact">impact</option>
                             <option value="monospace">Monospace</option>
                             <option value="serif">Serif</option>
                             <option value="arial">Arial</option>
                         </select>
-                    <button class="up button-44" onclick="onMoveLine(-5)">&uarr;</button>
-                    <button class="down button-44" onclick="onMoveLine(5)">&darr;</button>
-                    <button class="download button-44"><a href="#" onclick="onDownloadCanvas(this)" download="">Save</a></button>
+                    <button class="up nice-button" onclick="onMoveLine(-5)">&uarr;</button>
+                    <button class="down nice-button" onclick="onMoveLine(5)">&darr;</button>
+                    <button class="download nice-button"><a href="#" onclick="onDownloadCanvas(this)" download="">Save</a></button>
                 </div>
-
             </section>
 
-
         </main>
-        <footer class="flex column">
+
+        <footer class="flex column flex-center">
             <div class="main-logo">Mememeia</div>
             <small>	&copy;coffee-right 2022</small>
         </footer>
