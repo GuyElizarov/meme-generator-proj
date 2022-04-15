@@ -50,7 +50,7 @@
 
                     <input type="text" placeholder="do something..." name="txt" class="txt-input" oninput="onTxtChange(this.value)">
 
-                    <label class="clr nice-button flex flex-center"> Color <input style="visibility:hidden;" type="color" oninput="onColorChange(this.value)" ></label>
+                    <label class="clr nice-button flex flex-center"><img src="img/colors-icon.png"><input style="visibility:hidden;" type="color" oninput="onColorChange(this.value)" ></label>
 
                     <button class="fi nice-button" onclick="onChangeTxtSize(10)">A+</button>
                     <button class="fd nice-button" onclick="onChangeTxtSize(-10)">A-</button>
@@ -68,7 +68,7 @@
                         </select>
                     <button class="up nice-button" onclick="onMoveLine(-20)">&uarr;</button>
                     <button class="down nice-button" onclick="onMoveLine(20)">&darr;</button>
-                    <button class="download nice-button"><a href="#" onclick="onSaveCanvas(this)" download="">Save</a></button>
+                    <button class="download nice-button"><a href="#" onclick="onDownloadCanvas(this)" download="">save</a></button>
 
                 </div>
             </section>

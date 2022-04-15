@@ -7,6 +7,7 @@ function onInit() {
     gElCanvas = document.querySelector('#canvas')
     gCtx = gElCanvas.getContext('2d')
     renderGallery()
+        // resizeCanvas()
     renderMeme()
 }
 
@@ -70,11 +71,12 @@ function onChangeAlign(align) {
 
 function onSwitchLine() {
     switchLineIdx()
+    markLine()
     const elTxtInput = document.querySelector(`[name='txt']`)
     elTxtInput.value = getCurrTxt()
 }
 
-function onSaveCanvas(elLink) {
+function onDownloadCanvas(elLink) {
     elLink.href = gElCanvas.toDataURL()
     elLink.download = 'my-meme.jpg'
 }
@@ -89,7 +91,6 @@ function onDeleteLine() {
     renderMeme()
     const elTxtInput = document.querySelector(`[name='txt']`)
     elTxtInput.value = 'do something...'
-
 }
 
 function onClearAll() {
@@ -100,22 +101,37 @@ function onClearAll() {
 }
 
 function onCloseEditor() {
-
-    clearAllTxt()
+    clearAllLines()
     toggleEditor()
+    const elTxtInput = document.querySelector(`[name='txt']`)
+    elTxtInput.value = 'do something...'
 }
 
 function toggleEditor() {
     const elMainGallery = document.querySelector('.main-gallery')
     const elEditorContainer = document.querySelector('.editor-container')
-
     elMainGallery.classList.toggle('close-gallery')
     elEditorContainer.classList.toggle('open-editor')
 }
 
-function addListeners() {
-    // addMouseListeners()
-    // addTouchListeners()
+function markLine() {
+    const { txt, x, y, size } = getCurrLine()
+    const textMeasure = gCtx.measureText(txt)
+    gCtx.beginPath()
+    gCtx.rect(x - textMeasure.width / 2 - 5, y - size / 2 - 5, textMeasure.width + 10, size + 10)
+    gCtx.lineWidth = 3
+    gCtx.strokeStyle = 'firebrick'
+    gCtx.stroke()
+    setTimeout(renderMeme, 1500)
+}
+
+
+// i could not make it work :( //
+function resizeCanvas() {
+    const elContainer = document.querySelector('.canvas-container')
+    gElCanvas.width = elContainer.offsetWidth
+    gElCanvas.height = elContainer.offsetHeight
+    renderMeme()
 }
 
 // function toggleMenu() {

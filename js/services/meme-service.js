@@ -15,7 +15,7 @@ function clearLine() {
     gMeme.lines.splice(gMeme.selectedLineIdx, 1)
 }
 
-function clearAllTxt() {
+function clearAllLines() {
     gMeme.lines = []
 }
 
@@ -37,7 +37,7 @@ function creatCoords() {
     if (lineCount === 0 || lineCount > 2) {
         return { x: gElCanvas.width / 2, y: gElCanvas.height / 2 }
     } else if (lineCount === 1) {
-        return { x: gElCanvas.width / 2, y: gElCanvas.height / 3.5 }
+        return { x: gElCanvas.width / 2, y: gElCanvas.height / 3 }
     } else {
         return { x: gElCanvas.width / 2, y: gElCanvas.height / 1.5 }
     }
@@ -45,7 +45,6 @@ function creatCoords() {
 
 function moveLine(diff) {
     const line = getCurrLine()
-
     line.y += diff
 }
 
