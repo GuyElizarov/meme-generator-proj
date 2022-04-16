@@ -7,3 +7,13 @@ function renderGallery() {
     <img src=${img.url} data-id="${img.id}" onclick="onImgSelect(${img.id})">
     `).join('')
 }
+
+function onFilter(tag) {
+    setFilter(tag)
+    renderGallery()
+}
+
+// function onOpenMemes() {
+//     loadMemes()
+//     renderSavedMemes()
+// }

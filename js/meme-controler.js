@@ -78,6 +78,10 @@ function onChangeAlign(align) {
 function onSwitchLine() {
     switchLineIdx()
     markLine()
+    switchInputText()
+}
+
+function switchInputText() {
     const elTxtInput = document.querySelector(`[name='txt']`)
     elTxtInput.value = getCurrTxt()
 }
@@ -92,35 +96,35 @@ function onSaveCanvas() {
     saveCanvas(href)
 }
 
-function onOpenMemes() {
-    loadMemes()
-    renderMemes()
-}
-
 function onCreateLine() {
     creatLine()
     renderMeme()
 }
 
+function resetTextInputToPlaceholder() {
+    const elTxtInput = document.querySelector(`[name='txt']`)
+    if (getCurrTxt()) elTxtInput.value = getCurrTxt()
+    else elTxtInput.value = ''
+}
+
 function onDeleteLine() {
     clearLine()
     renderMeme()
-    const elTxtInput = document.querySelector(`[name='txt']`)
-    elTxtInput.value = 'do something...'
+    resetTextInputToPlaceholder()
+        // const elTxtInput = document.querySelector(`[name='txt']`)
+        // elTxtInput.value = getCurrTxt()
 }
 
 function onClearAll() {
     clearAllTxt()
     renderMeme()
-    const elTxtInput = document.querySelector(`[name='txt']`)
-    elTxtInput.value = 'do something...'
+    resetTextInputToPlaceholder()
 }
 
 function onCloseEditor() {
     clearAllLines()
     toggleEditor()
-    const elTxtInput = document.querySelector(`[name='txt']`)
-    elTxtInput.value = 'do something...'
+    resetTextInputToPlaceholder()
 }
 
 function toggleEditor() {
@@ -129,6 +133,10 @@ function toggleEditor() {
     elMainGallery.classList.toggle('close-gallery')
     elEditorContainer.classList.toggle('open-editor')
 }
+
+// function toggleMenu() {
+//     document.body.classList.toggle('menu-open')
+// }
 
 function markLine() {
     const { txt, x, y, size } = getCurrLine()
@@ -141,7 +149,6 @@ function markLine() {
     setTimeout(renderMeme, 1500)
 }
 
-
 // i could not make it work :( //
 function resizeCanvas() {
     const elContainer = document.querySelector('.canvas-container')
@@ -149,18 +156,6 @@ function resizeCanvas() {
     gElCanvas.height = elContainer.offsetHeight
     renderMeme()
 }
-
-// function toggleMenu() {
-//     document.body.classList.toggle('menu-open')
-// }
-
-
-
-
-
-
-
-
 
 function addMouseListeners() {
     gElCanvas.addEventListener('mousemove', onMove)
@@ -174,32 +169,35 @@ function addTouchListeners() {
     gElCanvas.addEventListener('touchend', onUp)
 }
 
-
 function onDown(ev) {
     const pos = getEvPos(ev)
     if (!isLineClicked(pos)) return
-    setLineDrag(true)
+    if (getClickedLine()) {
+        setSelectedLineIdx()
+        setLineDrag(true)
+        switchInputText()
+    }
     gStartPos = pos
     document.body.style.cursor = 'grabbing'
 }
 
-// function onMove(ev) {
-//     const circle = getCircle();
-//     if (!circle.isDrag) return
-//     const pos = getEvPos(ev)
-//     const dx = pos.x - gStartPos.x
-//     console.log('dx:', dx);
+function onMove(ev) {
+    const line = getClickedLine()
+    if (!line) return
 
-//     const dy = pos.y - gStartPos.y
-//     moveCircle(dx, dy)
-//     gStartPos = pos
-//     renderCanvas()
-// }
+    const pos = getEvPos(ev)
+    const dx = pos.x - gStartPos.x
+    const dy = pos.y - gStartPos.y
+    dragLine(dx, dy)
+    gStartPos = pos
+    renderMeme()
+}
 
-// function onUp() {
-//     setCircleDrag(false)
-//     document.body.style.cursor = 'grab'
-// }
+function onUp() {
+    if (getClickedLine()) setLineDrag(false)
+    clearClickLine()
+    document.body.style.cursor = 'default'
+}
 
 function getEvPos(ev) {
     var pos = {

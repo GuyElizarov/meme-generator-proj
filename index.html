@@ -19,10 +19,11 @@
             <div class="header-nav">
                 <ul class=" flex center">
 
-                    <li><a href="#">Memes</a> </li>
+                    <!-- <li><a href="#">Memes</a> </li> -->
                     <li><a class="active" href="#">Gallery</a> </li>
                     <li><a href="#">About</a></li>
                 </ul>
+
             </div>
         </header>
         <nav class="main-nav flex">
@@ -30,6 +31,17 @@
                 <li>funny</li>
                 <li>Dogs</li>
             </ul>
+
+            <input oninput="onFilter(this.value)" list="keywords">
+            <datalist id="keywords">
+                    <option value="all">
+                    <option value="baby">
+                  <option value="boss">
+                <option value="cat">
+                    <option value="dog">
+                  <option value="funny">
+                  <option value="wrestling">
+                </datalist>
         </nav>
 
         <main>

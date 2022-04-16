@@ -2,6 +2,7 @@
 
 
 const MEME_KEY = 'memeDB'
+var gClickedLine = NaN
 var gMemes = []
 var gMeme = {
     selectedImgId: 1,
@@ -11,7 +12,9 @@ var gMeme = {
 
 function switchLineIdx() {
     gMeme.selectedLineIdx++
-        if (gMeme.selectedLineIdx >= gMeme.lines.length) gMeme.selectedLineIdx = 0
+        if (gMeme.selectedLineIdx >= gMeme.lines.length) {
+            gMeme.selectedLineIdx = 0
+        }
 }
 
 function clearLine() {
@@ -61,51 +64,30 @@ function saveMemsToStorage() {
     saveToStorage(MEME_KEY, gMemes)
 }
 
-function loadMemes() {
-    gMemes = loadFromStorage(MEME_KEY)
+function clearClickLine() {
+    gClickedLine = NaN
 }
 
+function isLineClicked(clickedPos) {
+    return gMeme.lines.some(line => {
+        var { x, y, size } = line
+        const distance = Math.sqrt((x - clickedPos.x) ** 2 + (y - clickedPos.y) ** 2)
 
-
-
-
-
-
-
-
-
-
-function isCircleClicked(clickedPos) {
-    const { x, y, size } = gMeme.lines[selectedLineIdx]
-    const distance = Math.sqrt((x - clickedPos.x) ** 2 + (y - clickedPos.y) ** 2)
-    return distance <= size
+        if (distance <= size) {
+            gClickedLine = line
+            return true
+        }
+    })
 }
 
-
-function setLineDrag(isDrag) {
-    gCircle.isDrag = isDrag
+function dragLine(dx, dy) {
+    gClickedLine.x += dx
+    gClickedLine.y += dy
 }
 
-// function moveCircle(dx, dy) {
-//     gCircle.pos.x += dx
-//     gCircle.pos.y += dy
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function setSelectedLineIdx() {
+    gMeme.selectedLineIdx = getClickedLinIdx()
+}
 
 //setters
 
@@ -121,11 +103,10 @@ function setImgId(imgId) {
 
 function setColor(color) {
     getCurrLine().color = color
-
 }
 
 function setTxtSize(dif) {
-    let size = getCurrLine().size
+    let { size } = getCurrLine()
     if (size + dif > 20 && size + dif < 200) {
         getCurrLine().size += dif
     }
@@ -139,10 +120,17 @@ function setTextAlign(align) {
     gMeme.lines.forEach(line => line.align = align)
 }
 
+function setLineDrag(isDrag) {
+    gClickedLine.isDrag = isDrag
+}
 // getters
 
+function getMeme() {
+    return gMeme
+}
+
 function getCurrTxt() {
-    return getCurrLine().txt
+    if (getCurrLine()) return getCurrLine().txt
 }
 
 function geSelectedImgId() {
@@ -150,5 +138,13 @@ function geSelectedImgId() {
 }
 
 function getCurrLine() {
-    return gMeme.lines[gMeme.selectedLineIdx]
+    if (gMeme.lines.length !== 0) return gMeme.lines[gMeme.selectedLineIdx]
+}
+
+function getClickedLine() {
+    return gClickedLine
+}
+
+function getClickedLinIdx() {
+    return gMeme.lines.findIndex(line => line === gClickedLine)
 }
