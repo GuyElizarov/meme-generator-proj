@@ -55,15 +55,6 @@ function moveLine(diff) {
     line.y += diff
 }
 
-function saveCanvas(href) {
-    gMemes.push(href)
-    saveMemsToStorage
-}
-
-function saveMemsToStorage() {
-    saveToStorage(MEME_KEY, gMemes)
-}
-
 function clearClickLine() {
     gClickedLine = NaN
 }
@@ -148,3 +139,16 @@ function getClickedLine() {
 function getClickedLinIdx() {
     return gMeme.lines.findIndex(line => line === gClickedLine)
 }
+
+// function saveCanvas(href) {
+//     gMemes.push(href)
+//     saveMemsToStorage
+// }
+
+// function saveMemsToStorage() {
+//     saveToStorage(MEME_KEY, gMemes)
+// }
+
+// function loadMemesFromStorage() {
+//     loadFromStorage(MEME_KEY)
+// }

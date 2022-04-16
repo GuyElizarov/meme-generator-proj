@@ -27,21 +27,25 @@
             </div>
         </header>
         <nav class="main-nav flex">
+
+            <input class="filter" oninput="onFilter(this.value)" list="keywords">
+
+            <datalist id="keywords">
+                <option value="all">
+                <option value="baby">
+                <option value="boss">
+                <option value="cat">
+                <option value="dog">
+                <option value="funny">
+                <option value="wrestling">
+                <option value="putin">
+                <option value="leo">
+            </datalist>
+
             <ul class="flex flex-center">
                 <li>funny</li>
                 <li>Dogs</li>
             </ul>
-
-            <input oninput="onFilter(this.value)" list="keywords">
-            <datalist id="keywords">
-                    <option value="all">
-                    <option value="baby">
-                  <option value="boss">
-                <option value="cat">
-                    <option value="dog">
-                  <option value="funny">
-                  <option value="wrestling">
-                </datalist>
         </nav>
 
         <main>
@@ -82,6 +86,12 @@
                     <button class="down nice-button" onclick="onMoveLine(20)">&darr;</button>
                     <button class="download nice-button"><a href="#" onclick="onDownloadCanvas(this)" download="">save</a></button>
 
+                    <!-- <button class="add nice-button"><a href="#" onclick="" download="">add</a></button> -->
+
+                    <!-- <label class="upload nice-button"> <input type="file" class="file-input" style="visibility:hidden;" name="image" onchange="onUploadImg(event)" /></label> -->
+
+                    <!-- <div class="share-container nice-button" onclick="uploadImg()">Share</div> -->
+
                 </div>
             </section>
 
@@ -95,6 +105,7 @@
     </div>
 
     <script src="js/utils.js"></script>
+    <script src="js/services/upload-service.js"></script>
     <script src="js/services/storage-service.js"></script>
     <script src="js/services/meme-service.js"></script>
     <script src="js/services/gallery-service.js"></script>

@@ -11,3 +11,12 @@
     justify-content: flex-end;
     box-shadow: 1px 0px 5px #3a3845;
 }
+
+.main-nav.flex {
+    justify-content: space-between;
+}
+
+.main-nav .filter {
+    margin-inline-start: 2.5rem;
+    align-self: center;
+}

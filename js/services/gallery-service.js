@@ -1,6 +1,5 @@
 'use strict'
 var gFilter
-var gKeywordSearchCountMap = { 'funny': 12, 'cat': 16, 'baby': 2 }
 
 var gImgs = [
     { id: 1, url: 'img/meme-imgs/1.jpg', keywords: ['funny', 'boss'] },
@@ -15,9 +14,15 @@ var gImgs = [
     { id: 10, url: 'img/meme-imgs/10.jpg', keywords: ['funny', 'boss'] },
     { id: 11, url: 'img/meme-imgs/11.jpg', keywords: ['funny', 'wrestling'] },
     { id: 12, url: 'img/meme-imgs/12.jpg', keywords: ['funny', 'boss'] },
+    { id: 13, url: 'img/meme-imgs/13.jpg', keywords: ['funny', 'leo'] },
+    { id: 14, url: 'img/meme-imgs/14.jpg', keywords: ['funny', 'future'] },
+    { id: 15, url: 'img/meme-imgs/15.jpg', keywords: ['funny'] },
+    { id: 16, url: 'img/meme-imgs/16.jpg', keywords: ['funny'] },
+    { id: 17, url: 'img/meme-imgs/17.jpg', keywords: ['funny', 'putin'] },
+    { id: 18, url: 'img/meme-imgs/18.jpg', keywords: ['toys'] },
 ]
 
-function getImgs() {
+function getImgsForDisplay() {
     if (!gFilter || gFilter === 'all') {
         return gImgs
     } else {
@@ -37,8 +42,4 @@ function findImgsForDisplay() {
 
 function setFilter(tag) {
     gFilter = tag
-}
-
-function loadMemes() {
-    gMemes = loadFromStorage(MEME_KEY)
 }

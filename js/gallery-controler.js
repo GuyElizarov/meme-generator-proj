@@ -1,8 +1,10 @@
 'use strict'
 
+var gSavedMeme
+
 function renderGallery() {
     const elImgs = document.querySelector('.images')
-    const imgs = getImgs()
+    const imgs = getImgsForDisplay()
     elImgs.innerHTML = imgs.map(img => `
     <img src=${img.url} data-id="${img.id}" onclick="onImgSelect(${img.id})">
     `).join('')
@@ -13,7 +15,6 @@ function onFilter(tag) {
     renderGallery()
 }
 
-// function onOpenMemes() {
-//     loadMemes()
-//     renderSavedMemes()
+// function getMemes() {
+//  gSavedMeme = loadMemesFromStorage()
 // }
